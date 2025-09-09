@@ -1,7 +1,15 @@
 <?php
 
-$nom = ($_POST["nom"]);
-$prenom = ($_POST["prenom"]);
+$ident = ($_POST["ident"]);
+$mdp = ($_POST["mdp"]);
 
-echo "Bonjour $prenom $nom";
+if($ident == "admin" && $mdp == "azerty"){
+    $host = $_SERVER['HTTP_HOST'];
+    $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+    header("Location: http://$host$uri/profil.html");
+}else{
+    $host = $_SERVER['HTTP_HOST'];
+    $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+    header("Location: http://$host$uri/index.html");
+}
 ?>
